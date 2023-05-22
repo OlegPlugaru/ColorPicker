@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var selectedColor: Color = .red
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Circle()
+                .foregroundColor(selectedColor)
+                .frame(width: 200, height: 200)
+                .padding()
+            
+            Form {
+                ColorPicker("Change Circle Color", selection: $selectedColor)
+            }
         }
-        .padding()
     }
 }
 
